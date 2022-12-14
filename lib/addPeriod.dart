@@ -68,24 +68,24 @@ class _AddPeriodState extends State<AddPeriod> {
                     1
                   ],
                   colors: [
-                    Colors.pink[100],
-                    Colors.pink[100],
                     Colors.pink[50],
                     Colors.pink[50],
-                    Colors.pink[100],
-                    Colors.pink[100],
                     Colors.pink[50],
                     Colors.pink[50],
-                    Colors.pink[100],
-                    Colors.pink[100],
                     Colors.pink[50],
                     Colors.pink[50],
-                    Colors.pink[100],
-                    Colors.pink[100],
                     Colors.pink[50],
                     Colors.pink[50],
-                    Colors.pink[100],
-                    Colors.pink[100],
+                    Colors.pink[50],
+                    Colors.pink[50],
+                    Colors.pink[50],
+                    Colors.pink[50],
+                    Colors.pink[50],
+                    Colors.pink[50],
+                    Colors.pink[50],
+                    Colors.pink[50],
+                    Colors.pink[50],
+                    Colors.pink[50],
                     Colors.pink[50],
                     Colors.pink[50],
                   ],
@@ -184,12 +184,12 @@ class _FormUIState extends State<FormUI> {
                   setState(() {
                     if (heading == 'Duration') {
                       duration = temp;
-                    } else if (heading == 'Cycle Length') {
+                    }
+                    if (heading == 'Cycle Length') {
                       cycleLength = temp;
-                    } else if (heading == 'Flow') {
+                    }
+                    if (heading == 'Flow') {
                       flow = temp;
-                    } else {
-                      print('Invalid request.');
                     }
                     temp = 0;
                     Navigator.pop(context);
@@ -269,30 +269,7 @@ class _FormUIState extends State<FormUI> {
             ),
           ),
         )),
-        Material(
-            child: ListTile(
-          title: Text('Duration',
-              style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.pink[100],
-                  fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
-          subtitle: Text(duration.toString(),
-              style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.pink[50],
-                  fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
-          tileColor: Colors.pink[900].withOpacity(0.7),
-          trailing: IconButton(
-            onPressed: () {
-              _displayTextInputDialog(context, 'Duration');
-            },
-            icon: Icon(
-              Icons.calendar_view_month,
-              color: Colors.pink[100],
-              size: 40,
-            ),
-          ),
-        )),
+
         Material(
             child: ListTile(
           title: Text('Cycle Length',
@@ -317,6 +294,31 @@ class _FormUIState extends State<FormUI> {
             ),
           ),
         )),
+        Material(
+            child: ListTile(
+              title: Text('Duration',
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.pink[100],
+                      fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
+              subtitle: Text(duration.toString(),
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: Colors.pink[50],
+                      fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
+              tileColor: Colors.pink[900].withOpacity(0.7),
+              trailing: IconButton(
+                onPressed: () {
+                  _displayTextInputDialog(context, 'Duration');
+                },
+                icon: Icon(
+                  Icons.calendar_view_month,
+                  color: Colors.pink[100],
+                  size: 40,
+                ),
+              ),
+            )),
+
         Material(
             child: ListTile(
           title: Text('Flow',

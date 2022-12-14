@@ -115,6 +115,7 @@ class _MyCycleState extends State<MyCycles> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // resizeToAvoidBottomInset: false,
         appBar: AppBar(
           actions: [
             new SizedBox(
@@ -136,57 +137,57 @@ class _MyCycleState extends State<MyCycles> {
           child: new Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment(-1.0, 0.0),
-                end: Alignment(1.0, 0.0),
-                stops: [
-                  0.0,
-                  0.1,
-                  0.1,
-                  0.2,
-                  0.2,
-                  0.3,
-                  0.3,
-                  0.4,
-                  0.4,
-                  0.5,
-                  0.5,
-                  0.6,
-                  0.6,
-                  0.7,
-                  0.7,
-                  0.8,
-                  0.8,
-                  0.9,
-                  0.9,
-                  1
-                ],
-                colors: [
-                  Colors.pink[100],
-                  Colors.pink[100],
-                  Colors.pink[50],
-                  Colors.pink[50],
-                  Colors.pink[100],
-                  Colors.pink[100],
-                  Colors.pink[50],
-                  Colors.pink[50],
-                  Colors.pink[100],
-                  Colors.pink[100],
-                  Colors.pink[50],
-                  Colors.pink[50],
-                  Colors.pink[100],
-                  Colors.pink[100],
-                  Colors.pink[50],
-                  Colors.pink[50],
-                  Colors.pink[100],
-                  Colors.pink[100],
-                  Colors.pink[50],
-                  Colors.pink[50],
-                ],
-                tileMode: TileMode.repeated,
-              ),
-            ),
+            // decoration: BoxDecoration(
+            //   gradient: LinearGradient(
+            //     begin: Alignment(-1.0, 0.0),
+            //     end: Alignment(1.0, 0.0),
+            //     stops: [
+            //       0.0,
+            //       0.1,
+            //       0.1,
+            //       0.2,
+            //       0.2,
+            //       0.3,
+            //       0.3,
+            //       0.4,
+            //       0.4,
+            //       0.5,
+            //       0.5,
+            //       0.6,
+            //       0.6,
+            //       0.7,
+            //       0.7,
+            //       0.8,
+            //       0.8,
+            //       0.9,
+            //       0.9,
+            //       1
+            //     ],
+            //     colors: [
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //     ],
+            //     tileMode: TileMode.repeated,
+            //   ),
+            // ),
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -262,7 +263,7 @@ class _MyCycleState extends State<MyCycles> {
                   calendarController: _controller,
                 ),
                 Divider(),
-                Divider(),
+                // Divider(),
                 new Column(
                   children: [
                     Row(
@@ -279,23 +280,26 @@ class _MyCycleState extends State<MyCycles> {
                                         fontWeight: FontWeight.bold,
                                         fontFamily: 'Poppins')))),
                         Divider(),
-                        SizedBox(
-                          child: FloatingActionButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => AddPeriod()),
-                              );
-                            },
-                            backgroundColor: Colors.pink[900],
-                            child: Icon(Icons.add, color: Colors.pink[100]),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 0, top: 0, right: 0, bottom: 10),
+                          child: SizedBox(
+                            child: FloatingActionButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => AddPeriod()),
+                                );
+                              },
+                              backgroundColor: Colors.pink[900],
+                              child: Icon(Icons.add, color: Colors.pink[100]),
+                            ),
                           ),
                         )
                       ],
                     ),
                     Divider(),
-                    Row(
+                    Column(
                       children: <Widget>[
                         SizedBox(
                             height: 60,
@@ -317,12 +321,13 @@ class _MyCycleState extends State<MyCycles> {
                                       style: TextStyle(
                                           color: Colors.pink[200],
                                           fontWeight: FontWeight.bold,
-                                          fontFamily: 'Poppins'),
+                                          fontFamily: 'Poppins',
+                                      ),
                                     )))),
                       ],
                     ),
                     Divider(),
-                    Row(
+                    Column(
                       children: <Widget>[
                         SizedBox(
                             height: 60,
@@ -349,7 +354,7 @@ class _MyCycleState extends State<MyCycles> {
                       ],
                     ),
                     Divider(),
-                    Row(
+                    Column(
                       children: <Widget>[
                         SizedBox(
                             height: 60,
@@ -417,7 +422,7 @@ class _MyCycleState extends State<MyCycles> {
                     decoration: BoxDecoration(
                       color: Colors.pink[900],
                     ),
-                    child: Row(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(

@@ -166,7 +166,7 @@ class _CommunityState extends State<Community> {
                     )),
                   ),
                 ),
-                Divider(),
+                // Divider(),
                 Divider(),
                 Material(
                   child: ListTile(
@@ -199,7 +199,7 @@ class _CommunityState extends State<Community> {
                   ),
                 ),
                 Divider(),
-                Divider(),
+                // Divider(),
                 Material(
                   child: ListTile(
                     trailing: CircleAvatar(
@@ -231,7 +231,7 @@ class _CommunityState extends State<Community> {
                   ),
                 ),
                 Divider(),
-                Divider(),
+                // Divider(),
                 Material(
                   child: ListTile(
                     trailing: CircleAvatar(
