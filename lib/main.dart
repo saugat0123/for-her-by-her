@@ -1,6 +1,8 @@
 // @dart=2.9
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:for_her_by_her/Signup/Signup.dart';
 import 'package:for_her_by_her/aboutus.dart';
 import 'package:for_her_by_her/addPeriod.dart';
 import 'package:for_her_by_her/feedback.dart';
@@ -12,6 +14,8 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'Login/Login.dart';
 
 FirebaseFirestore fsi = FirebaseFirestore.instance;
 
@@ -29,7 +33,7 @@ void main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyCycles(),
+      home: Login(),
     ),
   );
 }
@@ -39,6 +43,8 @@ class MyCycles extends StatefulWidget {
 }
 
 class _MyCycleState extends State<MyCycles> {
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  // final User user;
   CalendarController _controller;
   DateFormat formatter = DateFormat('yyyy-MM-dd');
   TextEditingController _textFieldController = TextEditingController();
@@ -126,7 +132,7 @@ class _MyCycleState extends State<MyCycles> {
             ),
           ],
           title: Text(
-            "My Cycles",
+            "For Her, By Her",
             style: TextStyle(fontFamily: 'Allura', fontSize: 30),
           ),
           backgroundColor: Colors.pink[900],
@@ -535,9 +541,28 @@ class _MyCycleState extends State<MyCycles> {
                       );
                     },
                   ),
-                  // SizedBox(
-                  //   height: 190,
-                  // ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ListTile(
+                    tileColor: Colors.pink[900],
+                    trailing: Icon(
+                      Icons.logout,
+                      color: Colors.pink[100],
+                      size: 40,
+                    ),
+                    title: Text(
+                      "Log Out",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.pink[100],
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins'),
+                    ),
+                    onTap: () {
+                      logout(context);
+                    },
+                  ),
                   Expanded(
                       child: Align(
                     alignment: Alignment.bottomCenter,
@@ -631,5 +656,15 @@ class _MyCycleState extends State<MyCycles> {
             ],
           );
         });
+  }
+
+  logout(BuildContext context) async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      if(context != null) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Login()));
+      }
+    } catch (e) {}
   }
 }
