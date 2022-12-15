@@ -437,7 +437,7 @@ class _MyCycleState extends State<MyCycles> {
                             icon: Image.asset('assets/logo.png'),
                             onPressed: () => {}),
                         Text(
-                          "My Cycles",
+                          "Explore",
                           style: TextStyle(
                               fontFamily: 'Allura',
                               fontSize: 40,

@@ -143,111 +143,119 @@ class LoginState extends State<Login> {
           _autoValid ? AutovalidateMode.always : AutovalidateMode.disabled,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30.0),
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 20.0,
-            ),
-            PageHeader(title: "Sign In"),
-            SizedBox(
-              height: 30.0,
-            ),
-            TextFormField(
-              focusNode: email,
-              controller: emailCtrl,
-              keyboardType: TextInputType.emailAddress,
-              textInputAction: TextInputAction.next,
-              style: FormInputDecoration.CustomTextStyle(),
-              textAlign: TextAlign.center,
-              textCapitalization: TextCapitalization.none,
-              decoration: FormInputDecoration.FormInputDesign(name: "Email"),
-              onFieldSubmitted: (node) {
-                email?.unfocus();
-                FocusScope.of(context).requestFocus(password);
-              },
-              validator: (value) => CheckFieldValidation(
-                  val: value,
-                  password: '',
-                  fieldName: "Email",
-                  fieldType: VALIDATION_TYPE.EMAIL),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            TextFormField(
-              controller: passwordCtrl,
-              focusNode: password,
-              obscureText: true,
-              textInputAction: TextInputAction.done,
-              style: FormInputDecoration.CustomTextStyle(),
-              textAlign: TextAlign.center,
-              textCapitalization: TextCapitalization.none,
-              decoration: FormInputDecoration.FormInputDesign(name: "Password"),
-              onFieldSubmitted: (node) {
-                password?.unfocus();
-                login(context);
-              },
-              validator: (value) => CheckFieldValidation(
-                  val: value,
-                  password: '',
-                  fieldName: "Password",
-                  fieldType: VALIDATION_TYPE.TEXT),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            CustomButton(
-              text: "Login",
-              color: Colors.green,
-              onPressed: () => login(context),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Container(
-              alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Text(
-                    "Forgot Password ?",
-                    style: TextStyle(fontWeight: FontWeight.w500),
-                  ),
-                  GestureDetector(
-                    onTap: () => ShowDialogBox(context),
-                    child: Text(
-                      "Click here",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500, color: Colors.teal),
-                    ),
-                  )
-                ],
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+          child: Column(
+            children: <Widget>[
+              Text("WELCOME",
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 40,
+                    color: Colors.pink[100]),),
+              SizedBox(
+                height: 20.0,
               ),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            Container(
-              alignment: Alignment.center,
-              child: Text("OR", style: TextStyle(fontWeight: FontWeight.w500)),
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
-            CustomButton(
-              text: "Connect with facebook",
-              onPressed: () {},
-              color: Colors.indigo,
-            ),
-            SizedBox(
-              height: 5.0,
-            ),
-            CustomButton(
-              text: "Connect with twitter",
-              color: Colors.blue,
-              onPressed: () {},
-            )
-          ],
+              // PageHeader(title: "Sign In"),
+              SizedBox(
+                height: 30.0,
+              ),
+              TextFormField(
+                focusNode: email,
+                controller: emailCtrl,
+                keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
+                style: FormInputDecoration.CustomTextStyle(),
+                textAlign: TextAlign.center,
+                textCapitalization: TextCapitalization.none,
+                decoration: FormInputDecoration.FormInputDesign(name: "Email"),
+                onFieldSubmitted: (node) {
+                  email?.unfocus();
+                  FocusScope.of(context).requestFocus(password);
+                },
+                validator: (value) => CheckFieldValidation(
+                    val: value,
+                    password: '',
+                    fieldName: "Email",
+                    fieldType: VALIDATION_TYPE.EMAIL),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              TextFormField(
+                controller: passwordCtrl,
+                focusNode: password,
+                obscureText: true,
+                textInputAction: TextInputAction.done,
+                style: FormInputDecoration.CustomTextStyle(),
+                textAlign: TextAlign.center,
+                textCapitalization: TextCapitalization.none,
+                decoration: FormInputDecoration.FormInputDesign(name: "Password"),
+                onFieldSubmitted: (node) {
+                  password?.unfocus();
+                  login(context);
+                },
+                validator: (value) => CheckFieldValidation(
+                    val: value,
+                    password: '',
+                    fieldName: "Password",
+                    fieldType: VALIDATION_TYPE.TEXT),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              CustomButton(
+                text: "Login",
+                color: Colors.pinkAccent,
+                onPressed: () => login(context),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                alignment: Alignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text(
+                      "Forgot Password ?",
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
+                    GestureDetector(
+                      onTap: () => ShowDialogBox(context),
+                      child: Text(
+                        "Click here",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, color: Colors.teal),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                alignment: Alignment.center,
+                child: Text("OR", style: TextStyle(fontWeight: FontWeight.w500)),
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              CustomButton(
+                text: "Connect with facebook",
+                onPressed: () {},
+                color: Colors.indigo,
+              ),
+              SizedBox(
+                height: 5.0,
+              ),
+              CustomButton(
+                text: "Connect with twitter",
+                color: Colors.blue,
+                onPressed: () {},
+              )
+            ],
+          ),
         ),
       ),
     ));
