@@ -9,6 +9,7 @@ import 'package:for_her_by_her/feedback.dart';
 import 'package:for_her_by_her/community.dart';
 import 'package:for_her_by_her/healthtips.dart';
 import 'package:for_her_by_her/logs.dart';
+import 'package:for_her_by_her/phone.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -33,7 +34,7 @@ void main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: Signup(),
     ),
   );
 }
@@ -143,57 +144,6 @@ class _MyCycleState extends State<MyCycles> {
           child: new Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            // decoration: BoxDecoration(
-            //   gradient: LinearGradient(
-            //     begin: Alignment(-1.0, 0.0),
-            //     end: Alignment(1.0, 0.0),
-            //     stops: [
-            //       0.0,
-            //       0.1,
-            //       0.1,
-            //       0.2,
-            //       0.2,
-            //       0.3,
-            //       0.3,
-            //       0.4,
-            //       0.4,
-            //       0.5,
-            //       0.5,
-            //       0.6,
-            //       0.6,
-            //       0.7,
-            //       0.7,
-            //       0.8,
-            //       0.8,
-            //       0.9,
-            //       0.9,
-            //       1
-            //     ],
-            //     colors: [
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //     ],
-            //     tileMode: TileMode.repeated,
-            //   ),
-            // ),
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:for_her_by_her/main.dart';
+import 'package:for_her_by_her/phone.dart';
 import '../../Widgets/PageHeader.dart';
 import '../../Widgets/CustomButton.dart';
 import '../../Widgets/FormInputDecoration.dart';
@@ -80,7 +81,7 @@ class SignupState extends State<Signup> {
         Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(
-              builder: (BuildContext context) => MyCycles(),
+              builder: (BuildContext context) => MyPhone(),
             ),
             ModalRoute.withName('/root'));
 
