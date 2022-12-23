@@ -1,6 +1,8 @@
 // @dart=2.9
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:for_her_by_her/Login/Login.dart';
 import 'package:for_her_by_her/aboutus.dart';
 import 'package:for_her_by_her/addPeriod.dart';
 import 'package:for_her_by_her/feedback.dart';
@@ -327,6 +329,28 @@ class _AboutUsState extends State<AboutUs> {
                       );
                     },
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ListTile(
+                    tileColor: Colors.pink[900],
+                    trailing: Icon(
+                      Icons.logout,
+                      color: Colors.pink[100],
+                      size: 40,
+                    ),
+                    title: Text(
+                      "Log Out",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.pink[100],
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins'),
+                    ),
+                    onTap: () {
+                      logout(context);
+                    },
+                  ),
                   // SizedBox(
                   //   height: 190,
                   // ),
@@ -423,5 +447,15 @@ class _AboutUsState extends State<AboutUs> {
             ],
           );
         });
+  }
+
+  logout(BuildContext context) async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      if(context != null) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Login()));
+      }
+    } catch (e) {}
   }
 }

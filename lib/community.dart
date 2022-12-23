@@ -1,4 +1,5 @@
 // @dart=2.9
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:for_her_by_her/aboutus.dart';
@@ -11,6 +12,7 @@ import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'Login/Login.dart';
 import 'main.dart';
 
 const magenta = const Color(0x8e3a59);
@@ -72,57 +74,57 @@ class _CommunityState extends State<Community> {
           child: new Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment(-1.0, 0.0),
-                end: Alignment(1.0, 0.0),
-                stops: [
-                  0.0,
-                  0.1,
-                  0.1,
-                  0.2,
-                  0.2,
-                  0.3,
-                  0.3,
-                  0.4,
-                  0.4,
-                  0.5,
-                  0.5,
-                  0.6,
-                  0.6,
-                  0.7,
-                  0.7,
-                  0.8,
-                  0.8,
-                  0.9,
-                  0.9,
-                  1
-                ],
-                colors: [
-                  Colors.pink[100],
-                  Colors.pink[100],
-                  Colors.pink[50],
-                  Colors.pink[50],
-                  Colors.pink[100],
-                  Colors.pink[100],
-                  Colors.pink[50],
-                  Colors.pink[50],
-                  Colors.pink[100],
-                  Colors.pink[100],
-                  Colors.pink[50],
-                  Colors.pink[50],
-                  Colors.pink[100],
-                  Colors.pink[100],
-                  Colors.pink[50],
-                  Colors.pink[50],
-                  Colors.pink[100],
-                  Colors.pink[100],
-                  Colors.pink[50],
-                  Colors.pink[50],
-                ],
-                tileMode: TileMode.repeated,
-              ),
-            ),
+            // decoration: BoxDecoration(
+            //   gradient: LinearGradient(
+            //     begin: Alignment(-1.0, 0.0),
+            //     end: Alignment(1.0, 0.0),
+            //     stops: [
+            //       0.0,
+            //       0.1,
+            //       0.1,
+            //       0.2,
+            //       0.2,
+            //       0.3,
+            //       0.3,
+            //       0.4,
+            //       0.4,
+            //       0.5,
+            //       0.5,
+            //       0.6,
+            //       0.6,
+            //       0.7,
+            //       0.7,
+            //       0.8,
+            //       0.8,
+            //       0.9,
+            //       0.9,
+            //       1
+            //     ],
+            //     colors: [
+            //       Colors.pink[100],
+            //       Colors.pink[100],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[100],
+            //       Colors.pink[100],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[100],
+            //       Colors.pink[100],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[100],
+            //       Colors.pink[100],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //       Colors.pink[100],
+            //       Colors.pink[100],
+            //       Colors.pink[50],
+            //       Colors.pink[50],
+            //     ],
+            //     tileMode: TileMode.repeated,
+            //   ),
+            // ),
             child: new Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -420,6 +422,28 @@ class _CommunityState extends State<Community> {
                       );
                     },
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ListTile(
+                    tileColor: Colors.pink[900],
+                    trailing: Icon(
+                      Icons.logout,
+                      color: Colors.pink[100],
+                      size: 40,
+                    ),
+                    title: Text(
+                      "Log Out",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.pink[100],
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins'),
+                    ),
+                    onTap: () {
+                      logout(context);
+                    },
+                  ),
                   // SizedBox(
                   //   height: 190,
                   // ),
@@ -517,5 +541,15 @@ class _CommunityState extends State<Community> {
             ],
           );
         });
+  }
+
+  logout(BuildContext context) async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      if(context != null) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Login()));
+      }
+    } catch (e) {}
   }
 }

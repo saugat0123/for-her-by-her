@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:for_her_by_her/Signup/Signup.dart';
 import 'package:for_her_by_her/main.dart';
 import '../../Widgets/PageHeader.dart';
 import '../../Widgets/CustomButton.dart';
@@ -217,13 +218,16 @@ class LoginState extends State<Login> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Text(
-                      "Forgot Password ?",
+                      "Don't have an account?",
                       style: TextStyle(fontWeight: FontWeight.w500),
                     ),
                     GestureDetector(
-                      onTap: () => ShowDialogBox(context),
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Signup()));
+                      },
                       child: Text(
-                        "Click here",
+                        "Signup",
                         style: TextStyle(
                             fontWeight: FontWeight.w500, color: Colors.teal),
                       ),
