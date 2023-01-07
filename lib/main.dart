@@ -9,6 +9,7 @@ import 'package:for_her_by_her/feedback.dart';
 import 'package:for_her_by_her/community.dart';
 import 'package:for_her_by_her/healthtips.dart';
 import 'package:for_her_by_her/logs.dart';
+import 'package:for_her_by_her/myCart.dart';
 import 'package:for_her_by_her/phone.dart';
 import 'package:for_her_by_her/shopPage.dart';
 import 'package:intl/intl.dart';
@@ -491,6 +492,31 @@ class _MyCycleState extends State<MyCycles> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => FeedbackForm()),
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ListTile(
+                    tileColor: Colors.pink[900],
+                    trailing: Icon(
+                      Icons.email,
+                      color: Colors.pink[100],
+                      size: 40,
+                    ),
+                    title: Text(
+                      "My Cart",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.pink[100],
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins'),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyCart()),
                       );
                     },
                   ),
