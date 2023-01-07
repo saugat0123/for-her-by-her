@@ -10,6 +10,7 @@ import 'package:for_her_by_her/community.dart';
 import 'package:for_her_by_her/healthtips.dart';
 import 'package:for_her_by_her/logs.dart';
 import 'package:for_her_by_her/phone.dart';
+import 'package:for_her_by_her/shopPage.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -49,7 +50,7 @@ class _MyCycleState extends State<MyCycles> {
   CalendarController _controller;
   DateFormat formatter = DateFormat('yyyy-MM-dd');
   TextEditingController _textFieldController = TextEditingController();
-  final List<Widget> _children = [Community(), MyCycles(), AboutUs()];
+  final List<Widget> _children = [Community(), MyCycles(), AboutUs(), ShopPage()];
   bool _initialized = false;
   bool _error = false;
   void initializeFlutterFire() async {
@@ -354,6 +355,8 @@ class _MyCycleState extends State<MyCycles> {
                   icon: Icon(Icons.home), label: "Home"),
               BottomNavigationBarItem(
                   icon: Icon(Icons.people), label: "About Us"),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.shop), label: "Shop"),
             ],
             type: BottomNavigationBarType.shifting,
             currentIndex: _pageIndex,
