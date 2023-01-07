@@ -356,8 +356,8 @@ class _MyCycleState extends State<MyCycles> {
                   icon: Icon(Icons.home), label: "Home"),
               BottomNavigationBarItem(
                   icon: Icon(Icons.people), label: "About Us"),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.shop), label: "Shop"),
+              // BottomNavigationBarItem(
+              //     icon: Icon(Icons.shop), label: "Shop"),
             ],
             type: BottomNavigationBarType.shifting,
             currentIndex: _pageIndex,
@@ -401,7 +401,7 @@ class _MyCycleState extends State<MyCycles> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   ListTile(
                     tileColor: Colors.pink[900],
@@ -426,7 +426,7 @@ class _MyCycleState extends State<MyCycles> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   ListTile(
                     tileColor: Colors.pink[900],
@@ -448,7 +448,7 @@ class _MyCycleState extends State<MyCycles> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   ListTile(
                     tileColor: Colors.pink[900],
@@ -471,7 +471,7 @@ class _MyCycleState extends State<MyCycles> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   ListTile(
                     tileColor: Colors.pink[900],
@@ -496,12 +496,12 @@ class _MyCycleState extends State<MyCycles> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   ListTile(
                     tileColor: Colors.pink[900],
                     trailing: Icon(
-                      Icons.email,
+                      Icons.shopping_cart,
                       color: Colors.pink[100],
                       size: 40,
                     ),
@@ -521,7 +521,32 @@ class _MyCycleState extends State<MyCycles> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
+                  ),
+                  ListTile(
+                    tileColor: Colors.pink[900],
+                    trailing: Icon(
+                      Icons.shop,
+                      color: Colors.pink[100],
+                      size: 40,
+                    ),
+                    title: Text(
+                      "Shop",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.pink[100],
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins'),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ShopPage()),
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 5,
                   ),
                   ListTile(
                     tileColor: Colors.pink[900],

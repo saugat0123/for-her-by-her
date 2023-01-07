@@ -8,12 +8,14 @@ import 'package:for_her_by_her/feedback.dart';
 import 'package:for_her_by_her/community.dart';
 import 'package:for_her_by_her/healthtips.dart';
 import 'package:for_her_by_her/logs.dart';
+import 'package:for_her_by_her/shopPage.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'Login/Login.dart';
 import 'main.dart';
+import 'myCart.dart';
 
 const magenta = const Color(0x8e3a59);
 void main() async {
@@ -313,7 +315,7 @@ class _CommunityState extends State<Community> {
                             icon: Image.asset('assets/logo.png'),
                             onPressed: () => {}),
                         Text(
-                          "My Cycles",
+                          "Explore",
                           style: TextStyle(
                             fontFamily: 'Allura',
                             fontSize: 40,
@@ -324,7 +326,7 @@ class _CommunityState extends State<Community> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   ListTile(
                     tileColor: Colors.pink[900],
@@ -349,7 +351,7 @@ class _CommunityState extends State<Community> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   ListTile(
                     tileColor: Colors.pink[900],
@@ -375,7 +377,7 @@ class _CommunityState extends State<Community> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   ListTile(
                     tileColor: Colors.pink[900],
@@ -398,7 +400,7 @@ class _CommunityState extends State<Community> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
                   ),
                   ListTile(
                     tileColor: Colors.pink[900],
@@ -423,7 +425,57 @@ class _CommunityState extends State<Community> {
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 5,
+                  ),
+                  ListTile(
+                    tileColor: Colors.pink[900],
+                    trailing: Icon(
+                      Icons.shopping_cart,
+                      color: Colors.pink[100],
+                      size: 40,
+                    ),
+                    title: Text(
+                      "My Cart",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.pink[100],
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins'),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MyCart()),
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  ListTile(
+                    tileColor: Colors.pink[900],
+                    trailing: Icon(
+                      Icons.shop,
+                      color: Colors.pink[100],
+                      size: 40,
+                    ),
+                    title: Text(
+                      "Shop",
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.pink[100],
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Poppins'),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ShopPage()),
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 5,
                   ),
                   ListTile(
                     tileColor: Colors.pink[900],

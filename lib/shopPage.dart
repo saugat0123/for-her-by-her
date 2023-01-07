@@ -40,7 +40,18 @@ class ShopPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shop'),
+        actions: [
+          new SizedBox(
+            height: 100.0,
+            width: 80.0,
+            child: new IconButton(
+                icon: Image.asset('assets/logo.png'), onPressed: () => {}),
+          ),
+        ],
+        title: Text('Shop', style: TextStyle(fontFamily: 'Allura', fontSize: 30)),
+        backgroundColor: Colors.pink[900],
+        centerTitle: true,
+        elevation: 5.0,
       ),
       body: GridView.count(
         crossAxisCount: 2,
