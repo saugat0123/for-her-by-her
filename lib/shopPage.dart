@@ -7,17 +7,17 @@ class ShopPage extends StatelessWidget {
     Product(
       name: 'Sanitary pad',
       image: 'assets/product1.jpg',
-      price: 180,
+      price: 60,
     ),
     Product(
       name: 'Tampons',
       image: 'assets/2.jpg',
-      price: 280,
+      price: 80,
     ),
     Product(
       name: 'Cloth pads',
       image: 'assets/3.jpg',
-      price: 380,
+      price: 30,
     ),
     Product(
       name: 'Pain killer',
@@ -27,12 +27,12 @@ class ShopPage extends StatelessWidget {
     Product(
       name: 'Hand wash',
       image: 'assets/5.jpg',
-      price: 200,
+      price: 20,
     ),
     Product(
       name: 'Panty liners',
       image: 'assets/6.jpg',
-      price: 120,
+      price: 45,
     ),
   ];
 
