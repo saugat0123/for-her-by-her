@@ -211,7 +211,7 @@ class _MyCartState extends State<MyCart> {
                         .data! as QuerySnapshot).docs[index];
                     return ListTile(
                       title: Text(document['name']),
-                      subtitle: Text('\$${document['price']}'),
+                      subtitle: Text('\Rs. ${document['price']}'),
                       trailing: IconButton(
                         icon: Icon(Icons.delete),
                         onPressed: () {
@@ -252,7 +252,7 @@ class _MyCartState extends State<MyCart> {
                 // child: Text('Total: \$$totalPrice', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
                 child: Column(
                   children: <Widget>[
-                    Text('Total: \$$totalPrice', style: TextStyle(
+                    Text('Total: \Rs. $totalPrice', style: TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 20)),
                     ElevatedButton(
                         onPressed: () {

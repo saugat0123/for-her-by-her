@@ -5,34 +5,34 @@ import 'package:fluttertoast/fluttertoast.dart';
 class ShopPage extends StatelessWidget {
   final List<Product> products = [
     Product(
-      name: 'Product 1',
+      name: 'Sanitary pad',
       image: 'assets/product1.jpg',
-      price: 29.99,
+      price: 180,
     ),
     Product(
-      name: 'Product 2',
-      image: 'assets/product1.jpg',
-      price: 39.99,
+      name: 'Tampons',
+      image: 'assets/2.jpg',
+      price: 280,
     ),
     Product(
-      name: 'Product 3',
-      image: 'assets/product1.jpg',
-      price: 49.99,
+      name: 'Cloth pads',
+      image: 'assets/3.jpg',
+      price: 380,
     ),
     Product(
-      name: 'Product 4',
-      image: 'assets/product1.jpg',
-      price: 59.99,
+      name: 'Pain killer',
+      image: 'assets/4.jpg',
+      price: 40,
     ),
     Product(
-      name: 'Product 5',
-      image: 'assets/product1.jpg',
-      price: 69.99,
+      name: 'Hand wash',
+      image: 'assets/5.jpg',
+      price: 200,
     ),
     Product(
-      name: 'Product 6',
-      image: 'assets/product1.jpg',
-      price: 79.99,
+      name: 'Panty liners',
+      image: 'assets/6.jpg',
+      price: 120,
     ),
   ];
 
@@ -96,7 +96,7 @@ class ProductCard extends StatelessWidget {
         children: <Widget>[
           Image.asset(product.image),
           Text(product.name),
-          Text('\$${product.price}'),
+          Text('\Rs. ${product.price}'),
           TextButton(
             onPressed: () => _addProductToCart(context),
             child: Text('Buy'),
