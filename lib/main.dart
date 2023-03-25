@@ -13,6 +13,7 @@ import 'package:for_her_by_her/myCart.dart';
 import 'package:for_her_by_her/phone.dart';
 import 'package:for_her_by_her/shopPage.dart';
 import 'package:intl/intl.dart';
+import 'package:khalti_flutter/khalti_flutter.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -34,9 +35,19 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Login(),
+    KhaltiScope(
+      publicKey: 'test_public_key_3cec85624bc746f0b0b0a567d3d25c34',
+      enabledDebugging: true,
+      builder: (context, navKey) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: Login(),
+          navigatorKey: navKey,
+          localizationsDelegates: const [
+            KhaltiLocalizations.delegate,
+          ],
+        );
+      },
     ),
   );
 }
