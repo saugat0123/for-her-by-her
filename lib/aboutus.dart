@@ -116,7 +116,9 @@ class _AboutUsState extends State<AboutUs> {
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(25, 5, 25, 10),
-                    child: ElevatedButton(
+                    child: CustomButton(
+                        text: "Join Google Meet",
+                        color: Colors.pink[900],
                         onPressed: () async {
                           String url = 'https://meet.google.com/';
                           if (await canLaunch(url)) {
@@ -124,10 +126,8 @@ class _AboutUsState extends State<AboutUs> {
                           } else {
                             throw 'Could not launch $url';
                           }
-                        },
-                        child: const Text("Join Google Meet"))
+                        })
                     ),
-                  )
                 ]),
           ),
         ),
