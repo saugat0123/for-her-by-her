@@ -14,6 +14,8 @@ import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'Widgets/CustomButton.dart';
 import 'main.dart';
 import 'package:contactus/contactus.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -81,57 +83,7 @@ class _AboutUsState extends State<AboutUs> {
         body: SingleChildScrollView(
           child: new Container(
             height: MediaQuery.of(context).size.height,
-            // decoration: BoxDecoration(
-            //   gradient: LinearGradient(
-            //     begin: Alignment(-1.0, 0.0),
-            //     end: Alignment(1.0, 0.0),
-            //     stops: [
-            //       0.0,
-            //       0.1,
-            //       0.1,
-            //       0.2,
-            //       0.2,
-            //       0.3,
-            //       0.3,
-            //       0.4,
-            //       0.4,
-            //       0.5,
-            //       0.5,
-            //       0.6,
-            //       0.6,
-            //       0.7,
-            //       0.7,
-            //       0.8,
-            //       0.8,
-            //       0.9,
-            //       0.9,
-            //       1
-            //     ],
-            //     colors: [
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //       Colors.pink[50],
-            //     ],
-            //     tileMode: TileMode.repeated,
-            //   ),
-            // ),
+
             child: new Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -157,29 +109,25 @@ class _AboutUsState extends State<AboutUs> {
                     taglineColor: Colors.pink,
                     taglineFont: 'Poppins',
                     email: "aditi.hk@somaiya.edu",
-                    phoneNumber: '+91- 9820623217',
                     taglineFontWeight: FontWeight.normal,
                     logo: AssetImage('assets/aditi.jpeg'),
                     tagLine: " Student, KJSCE TY IT ",
                     // dividerColor: Colors.black38,
                   ),
-                  // Divider(),
-                  // ContactUs(
-                  //   textFont: 'Poppins',
-                  //   taglineFont: 'Poppins',
-                  //   companyName: "Pooja Kaulgud",
-                  //   companyFontSize: 30,
-                  //   textColor: Colors.white,
-                  //   cardColor: Colors.pink[900],
-                  //   companyColor: Colors.pink,
-                  //   taglineColor: Colors.pink,
-                  //   email: "pooja.kaulgud@somaiya.edu",
-                  //   phoneNumber: '+91- 9619105432',
-                  //   logo: AssetImage('assets/pooja.jpeg'),
-                  //   taglineFontWeight: FontWeight.normal,
-                  //   tagLine: " KJSCE TY IT ",
-                  //   dividerColor: Colors.black38,
-                  // )
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(25, 5, 25, 10),
+                    child: ElevatedButton(
+                        onPressed: () async {
+                          String url = 'https://meet.google.com/';
+                          if (await canLaunch(url)) {
+                            await launch(url);
+                          } else {
+                            throw 'Could not launch $url';
+                          }
+                        },
+                        child: const Text("Join Google Meet"))
+                    ),
+                  )
                 ]),
           ),
         ),
