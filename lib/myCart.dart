@@ -289,6 +289,7 @@ class _MyCartState extends State<MyCart> {
   }
 
   void onSuccess(PaymentSuccessModel success) {
+    deleteCartItems();
     showDialog(
       context: context,
       builder: (context) {
@@ -319,5 +320,15 @@ class _MyCartState extends State<MyCart> {
 
   void onCancel() {
     debugPrint('Cancelled');
+  }
+
+  Future<void> deleteCartItems() async {
+    final QuerySnapshot cartSnapshot = await FirebaseFirestore.instance.collection('cart').get();
+
+    for (DocumentSnapshot docSnapshot in cartSnapshot.docs) {
+      await docSnapshot.reference.delete();
+    }
+
+    await FirebaseFirestore.instance.collection('cart').doc().delete();
   }
 }

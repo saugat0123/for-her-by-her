@@ -31,7 +31,10 @@ class _AddPeriodState extends State<AddPeriod> {
         ],
         title: Text(
           "My Period",
-          style: TextStyle(fontFamily: 'Allura', fontSize: 30, ),
+          style: TextStyle(
+            fontFamily: 'Allura',
+            fontSize: 30,
+          ),
         ),
         backgroundColor: Colors.pink[900],
         centerTitle: true,
@@ -166,7 +169,8 @@ class _FormUIState extends State<FormUI> {
                 ),
                 child: Text(
                   'CANCEL',
-                  style: TextStyle(color: Colors.pink[50], fontFamily: 'Poppins'),
+                  style:
+                      TextStyle(color: Colors.pink[50], fontFamily: 'Poppins'),
                 ),
                 onPressed: () {
                   setState(() {
@@ -179,7 +183,9 @@ class _FormUIState extends State<FormUI> {
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Colors.pink[900]),
                 ),
-                child: Text('OK', style: TextStyle(color: Colors.pink[50], fontFamily: 'Poppins')),
+                child: Text('OK',
+                    style: TextStyle(
+                        color: Colors.pink[50], fontFamily: 'Poppins')),
                 onPressed: () {
                   setState(() {
                     if (heading == 'Duration') {
@@ -218,8 +224,10 @@ class _FormUIState extends State<FormUI> {
         behavior: SnackBarBehavior.floating,
         content: Text('Your Period Info was addded!',
             textAlign: TextAlign.center,
-            style:
-                TextStyle(fontWeight: FontWeight.bold, color: Colors.pink[50], fontFamily: 'Poppins')),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pink[50],
+                fontFamily: 'Poppins')),
         backgroundColor: Colors.pink[200],
       );
 
@@ -230,8 +238,10 @@ class _FormUIState extends State<FormUI> {
         behavior: SnackBarBehavior.floating,
         content: Text('Error in submitting!',
             textAlign: TextAlign.center,
-            style:
-                TextStyle(fontWeight: FontWeight.bold, color: Colors.pink[50], fontFamily: 'Poppins')),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.pink[50],
+                fontFamily: 'Poppins')),
         backgroundColor: Colors.pink[200],
       );
 
@@ -256,7 +266,8 @@ class _FormUIState extends State<FormUI> {
               style: TextStyle(
                   fontSize: 30,
                   color: Colors.pink[50],
-                  fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Poppins')),
           tileColor: Colors.pink[900].withOpacity(0.7),
           trailing: IconButton(
             onPressed: () {
@@ -276,12 +287,14 @@ class _FormUIState extends State<FormUI> {
               style: TextStyle(
                   fontSize: 20,
                   color: Colors.pink[100],
-                  fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Poppins')),
           subtitle: Text(cycleLength.toString(),
               style: TextStyle(
                   fontSize: 30,
                   color: Colors.pink[50],
-                  fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Poppins')),
           tileColor: Colors.pink[900].withOpacity(0.7),
           trailing: IconButton(
             onPressed: () {
@@ -296,81 +309,154 @@ class _FormUIState extends State<FormUI> {
         )),
         Material(
             child: ListTile(
-              title: Text('Duration',
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.pink[100],
-                      fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
-              subtitle: Text(duration.toString(),
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.pink[50],
-                      fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
-              tileColor: Colors.pink[900].withOpacity(0.7),
-              trailing: IconButton(
-                onPressed: () {
-                  _displayTextInputDialog(context, 'Duration');
-                },
-                icon: Icon(
-                  Icons.calendar_view_month,
-                  color: Colors.pink[100],
-                  size: 40,
-                ),
-              ),
-            )),
-
-        Material(
-            child: ListTile(
-          title: Text('Flow',
+          title: Text('Duration',
               style: TextStyle(
                   fontSize: 20,
                   color: Colors.pink[100],
-                  fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
-          subtitle: Text(flow.toString(),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Poppins')),
+          subtitle: Text(duration.toString(),
               style: TextStyle(
                   fontSize: 30,
                   color: Colors.pink[50],
-                  fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Poppins')),
           tileColor: Colors.pink[900].withOpacity(0.7),
-          trailing: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                  width: 200,
-                  child: SliderTheme(
-                      data: SliderThemeData(
-                          thumbColor: Colors.pink[200],
-                          thumbShape:
-                              RoundSliderThumbShape(enabledThumbRadius: 10)),
-                      child: Slider(
-                        value: flow.toDouble(),
-                        min: 0,
-                        max: 10,
-                        divisions: 10,
-                        label: flow.round().toString(),
-                        activeColor: Colors.pink[50],
-                        inactiveColor: Colors.pink[100],
-                        onChanged: (double value) {
-                          setState(() {
-                            flow = value.round().toInt();
-                          });
-                        },
-                      ))),
-              IconButton(
-                onPressed: () {
-                  _displayTextInputDialog(context, 'Flow');
-                },
-                icon: Icon(
-                  Icons.water,
-                  color: Colors.pink[100],
-                  size: 40,
-                ),
-              ),
-            ],
+          trailing: IconButton(
+            onPressed: () {
+              _displayTextInputDialog(context, 'Duration');
+            },
+            icon: Icon(
+              Icons.calendar_view_month,
+              color: Colors.pink[100],
+              size: 40,
+            ),
           ),
         )),
+
+        // Material(
+        //     child: ListTile(
+        //   title: Text('Flow',
+        //       style: TextStyle(
+        //           fontSize: 20,
+        //           color: Colors.pink[100],
+        //           fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
+        //   subtitle: Text(flow.toString(),
+        //       style: TextStyle(
+        //           fontSize: 30,
+        //           color: Colors.pink[50],
+        //           fontWeight: FontWeight.bold, fontFamily: 'Poppins')),
+        //   tileColor: Colors.pink[900].withOpacity(0.7),
+        //   trailing: Row(
+        //     mainAxisSize: MainAxisSize.min,
+        //     children: [
+        //       Container(
+        //           width: 200,
+        //           child: SliderTheme(
+        //               data: SliderThemeData(
+        //                   thumbColor: Colors.pink[200],
+        //                   thumbShape:
+        //                       RoundSliderThumbShape(enabledThumbRadius: 10)),
+        //               child: Slider(
+        //                 value: flow.toDouble(),
+        //                 min: 0,
+        //                 max: 2,
+        //                 divisions: 2,
+        //                 label: flow.round().toString(),
+        //                 activeColor: Colors.pink[50],
+        //                 inactiveColor: Colors.pink[100],
+        //                 onChanged: (double value) {
+        //                   setState(() {
+        //                     flow = value.round().toInt();
+        //                     if (flow == 0) {
+        //
+        //                     }
+        //                   });
+        //                 },
+        //               ))),
+        //       IconButton(
+        //         onPressed: () {
+        //           _displayTextInputDialog(context, 'Flow');
+        //         },
+        //         icon: Icon(
+        //           Icons.water,
+        //           color: Colors.pink[100],
+        //           size: 40,
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // )),
+        Material(
+          child: ListTile(
+            title: Text(
+              'Flow',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.pink[100],
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Poppins',
+              ),
+            ),
+            subtitle: Text(
+              flow == 0
+                  ? 'Low'
+                  : flow == 1
+                      ? 'Medium'
+                      : 'High',
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.pink[50],
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Poppins',
+              ),
+            ),
+            tileColor: Colors.pink[900].withOpacity(0.7),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    _displayTextInputDialog(context, 'Flow');
+                  },
+                  icon: Icon(
+                    Icons.water,
+                    color: Colors.pink[100],
+                    size: 40,
+                  ),
+                ),
+                Container(
+                  width: 150,
+                  child: SliderTheme(
+                    data: SliderThemeData(
+                      thumbColor: Colors.pink[200],
+                      thumbShape: RoundSliderThumbShape(
+                        enabledThumbRadius: 10,
+                      ),
+                    ),
+                    child: Slider(
+                      value: flow.toDouble(),
+                      min: 0,
+                      max: 2,
+                      divisions: 2,
+                      label: flow.round().toString(),
+                      activeColor: Colors.pink[50],
+                      inactiveColor: Colors.pink[100],
+                      onChanged: (double value) {
+                        setState(() {
+                          flow = value.round().toInt();
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+
         Padding(
-            padding: EdgeInsets.fromLTRB(20, 20, 20, 40),
+            padding: EdgeInsets.fromLTRB(20, 0, 20, 60),
             child: TextButton(
                 style: ButtonStyle(
                   backgroundColor:
@@ -384,7 +470,8 @@ class _FormUIState extends State<FormUI> {
                   style: TextStyle(
                       fontSize: 20,
                       color: Colors.pink[100],
-                      fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Poppins'),
                 ))),
       ],
     );
