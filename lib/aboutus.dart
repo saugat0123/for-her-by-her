@@ -117,17 +117,34 @@ class _AboutUsState extends State<AboutUs> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(25, 5, 25, 10),
                     child: CustomButton(
-                        text: "Join Google Meet",
-                        color: Colors.pink[900],
-                        onPressed: () async {
-                          String url = 'https://meet.google.com/';
-                          if (await canLaunch(url)) {
-                            await launch(url);
-                          } else {
-                            throw 'Could not launch $url';
-                          }
-                        })
-                    ),
+                      text: "Join Google Meet",
+                      color: Colors.pink[900],
+                      onPressed: () async {
+                        final String recipient = "youremail@gmail.com"; // Replace with recipient's email
+                        final String subject = "Join Meeting";
+                        final String body = "Click this link to join the meeting: https://meet.google.com/ehg-vheu-adc"; // Replace with actual meeting link
+
+                        final url = "mailto:$recipient?subject=${Uri.encodeFull(subject)}&body=${Uri.encodeFull(body)}";
+
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                          SnackBar(
+                            margin: EdgeInsets.all(20),
+                            behavior: SnackBarBehavior.floating,
+                            content: Text('Meeting link sent successfully',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.pink[50],
+                                    fontFamily: 'Poppins')),
+                            backgroundColor: Colors.pink[200],
+                          );
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      },
+                    )
+                  ),
                 ]),
           ),
         ),
